@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#define N 1000
+#define M 1000000000
+
+long long int arr[N][N];
+
+void fillArr()
+{
+    int i,j;
+    for(i = 0; i < N; i++)
+    {
+        for(j = 0; j <= i; j++)
+        {
+            if(j == 0 || i == j)
+                arr[i][j] = 1;
+            else
+                arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
+            if(arr[i][j] > M)
+                arr[i][j] %= M;
+        }
+    }
+}
+
+void printArr(int n)
+{
+    int i;
+    for(i = 0; i < n+1 ; i++)
+    {
+        printf("%lld ",arr[n][i]);
+    }
+    printf("\n");
+}
+
+int main() {
+
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int testCases,n;
+
+    fillArr();
+
+    scanf("%d",&testCases);
+
+    while(testCases--)
+    {
+        scanf("%d",&n);
+        printArr(n);
+    }
+
+    return 0;
+}

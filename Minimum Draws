@@ -1,0 +1,23 @@
+/*
+Logic : Worst case is when the user pulls the matching socks last.
+*/
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int testCases;
+    int n;
+    
+    scanf("%d",&testCases);
+    
+    while(testCases--)
+    {
+        scanf("%d",&n);
+        printf("%d\n",n+1);
+    }
+    
+    return 0;
+}

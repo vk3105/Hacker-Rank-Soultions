@@ -1,0 +1,39 @@
+/*
+Logic : Read More about GCD, Solutions to the basic problem of ax = by and how to find different solution.
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+long long int gcd(long long int num1,long long int num2){
+    while(num1!=num2)
+    {
+        if(num1>num2)
+            num1-=num2;
+        else
+            num2-=num1;
+    }
+    return num1;
+}
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int cases;
+    long long int a,b,x,y;
+
+    scanf("%d",&cases);
+
+    while(cases--){
+        scanf("%lld %lld %lld %lld",&a,&b,&x,&y); 
+        if(gcd(a,b) == gcd(x,y)){
+            printf("YES\n");
+        }else{
+            printf("NO\n");
+        }
+    }
+
+    return 0;
+}

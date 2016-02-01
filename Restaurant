@@ -1,0 +1,42 @@
+/*
+Logic : GCD of length and breadth will give us the solution. 
+Why ? Because that is the largest number which will divide both length and breadth with integral solution.
+*/
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int gcd(int num1, int num2){
+    while(num1!=num2)
+    {
+        if(num1>num2)
+            num1-=num2;
+        else
+            num2-=num1;
+    }
+    return num1;
+}
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int cases;
+    int num1, num2;
+    int g;
+    long prod;
+    long sqr;
+    
+    scanf("%d",&cases);
+    
+    while(cases--){
+        scanf("%d %d",&num1,&num2);
+        prod = num1*num2;
+        g = gcd(num1,num2);
+        sqr = g*g;
+        printf("%ld\n",prod/sqr);
+    }
+    
+    return 0;
+}

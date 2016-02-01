@@ -1,0 +1,32 @@
+/*
+Logic : Simple relative motion concept of math, more of physics :P
+*/
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    long long int l,s1,s2,e,s;
+    int q;
+    
+    scanf("%lld %lld %lld",&l,&s1,&s2);
+    
+    scanf("%d",&q);
+    
+    while(q--){
+        scanf("%lld",&e);
+        
+        if(s1>s2)
+            s = s1-s2;
+        else
+            s = s2-s1;
+        
+        printf("%f\n",((sqrt(2*l*l)-sqrt(2*e))/s));
+        
+    }
+    
+    return 0;
+}

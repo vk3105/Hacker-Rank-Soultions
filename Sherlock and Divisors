@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int a[20];
+
+int primeFactors(long int n)
+{
+    int count = 0;
+    long int i,sqr;
+    
+    sqr = sqrt(n);
+    
+    if(n%2 == 0)
+        count++;
+    while (n%2 == 0)
+    {
+        n = n/2;
+        a[count]++;
+    }
+ 
+    for (i = 3; i <= sqr; i = i+2)
+    {
+        if(n%i == 0)
+            count++;
+        while (n%i == 0)
+        {
+            n = n/i;
+            a[count]++;
+        }
+    }
+ 
+    if (n > 2){
+        count++;
+        a[count]++;
+    }
+    
+    return count;
+}
+
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    int t,c,i;
+    long int n;
+    int val = 1;
+    
+    scanf("%d",&t);
+    
+    while(t--){
+        val = 1;
+        scanf("%ld",&n);
+        if(n%2){
+            printf("0\n");
+        }else{
+            
+            c = primeFactors(n);
+            a[1]--;
+            for(i = 1; i <= c; i++){
+                val *= (a[i]+1);
+            }
+            for(i = 1; i <= c; i++){
+                a[i] = 0;
+            }
+            printf("%d\n",val);
+        }
+    }
+    
+    return 0;
+}

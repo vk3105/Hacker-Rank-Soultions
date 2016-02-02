@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    
+    long long int r,c,p,q,m,t,v;
+    
+    scanf("%lld %lld",&r,&c);
+    
+    q = r/2;
+    
+    m = r%2;
+    
+    if(!m){
+        v = q*10 - ((5-c)*2+1);
+    }else{
+        v = q*10 + 2*(c-1);
+    }
+    
+    printf("%lld\n",v);
+    
+    return 0;
+}

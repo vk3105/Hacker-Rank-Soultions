@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#define N 1234567
+
+
+int main() {
+    int testCases;
+    int cities,n,i;
+    long long val;
+    
+    scanf("%d",&testCases);
+    
+    while(testCases--)
+    {
+        scanf("%d",&cities);
+        val = 1;
+        for(i = 1; i < cities; i++)
+        {
+            scanf("%d",&n);
+            val = val*n;
+            if(val > N)
+                val = val%N;
+        }
+        printf("%lld\n",val);            
+    }
+}

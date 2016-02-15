@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#define N 100000
+
+long long mulmod(long long a,long long b){
+    long long x = 0,y=a%N;
+    while(b > 0){
+        if(b%2 == 1){
+            x = (x+y)%N;
+        }
+        y = (y*2)%N;
+        b /= 2;
+    }
+    return x%N;
+}
+
+int modulo(int a,int b){
+    long long x=1,y=a; // long long is taken to avoid overflow of intermediate results
+    while(b > 0){
+        if(b%2 == 1){
+            x=mulmod(x,y);
+        }
+        y = mulmod(y,y); // squaring the base
+        b /= 2;
+    }
+    return x%N;
+}
+
+int main() {
+    int testCases;
+    int n;
+    
+    scanf("%d",&testCases);
+    
+    while(testCases--)
+    {
+        scanf("%d",&n);
+        printf("%d\n",((modulo(2,n))-1));            
+    }
+}

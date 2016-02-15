@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int t;
+    long long k,v,m;
+    
+    scanf("%d",&t);
+    
+    while(t--){
+        scanf("%lld",&k);
+        m = k/2;
+        k -= m;
+        
+        printf("%lld\n",m*k);
+    }
+    
+    return 0;
+}

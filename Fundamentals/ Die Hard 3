@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+long long int gcd(long long int num1,long long int num2){
+    while(num1!=num2)
+    {
+        if(num1>num2)
+            num1-=num2;
+        else
+            num2-=num1;
+    }
+    return num1;
+}
+
+int main() {
+
+    long long int a,b,c,t,g,m;
+    scanf("%lld",&t);
+    
+    while(t--){
+        scanf("%lld %lld %lld",&a,&b,&c);
+        
+        m = a>b?a:b;
+        
+        g = gcd(a,b);
+        
+        if(c%g == 0 && c < m)
+            printf("YES\n");
+        else
+            printf("NO\n");
+    }
+    
+    return 0;
+}

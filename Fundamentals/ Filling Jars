@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    long long int n,m,a,b,k,v;
+    
+    scanf("%lld %lld",&n,&m);
+    
+    v = 0;
+    
+    while(m--){
+        scanf("%lld %lld %lld",&a,&b,&k);
+        
+        v += ((b-a)+1)*k;
+        
+    }
+    
+    printf("%lld\n",v/n);
+    
+    return 0;
+}

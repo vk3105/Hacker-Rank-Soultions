@@ -7,12 +7,13 @@
 
 int main() {
 
-    long long int arr[N];
     long top = -1;
-    long long int max[N];
     long n,x,t;
     
     scanf("%ld",&n);
+    
+    long long int *arr = (long long int*)malloc(sizeof(long long int)*n);
+    long long int *max = (long long int*)malloc(sizeof(long long int)*n);
     
     while(n--){
         scanf("%ld",&t);
@@ -35,6 +36,9 @@ int main() {
             printf("%lld\n",max[top]);
         }
     }
+    
+    free(arr);
+    free(max);
     
     return 0;
 }

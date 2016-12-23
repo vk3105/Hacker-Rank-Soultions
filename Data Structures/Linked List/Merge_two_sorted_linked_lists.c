@@ -10,14 +10,12 @@
 Node* MergeLists(Node *headA, Node* headB)
 {
     struct Node* head = NULL;
- 
-    /* Base cases */
+
       if (headA == NULL) 
         return(headB);
       else if (headB==NULL) 
         return(headA);
- 
-      /* Pick either a or b, and recur */
+  
       if (headA->data <= headB->data) 
       {
          head = headA;
